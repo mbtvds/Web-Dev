@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pricing Layout</title>
+    <style>
+        /* Общие настройки стилей */
+        :root {
+            --color-canvas-default: #ffffff;
+            --color-fg-default: #1F2328;
+            --color-fg-muted: #636c76;
+            --color-border-default: #d0d7de;
+            --color-accent-fg: #0969da;
+            --color-btn-bg: #21262d;
+            --color-btn-text: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            color: var(--color-fg-default);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-canvas-default);
+        }
+
+        /* 1. Hero Section - Заголовок и описание */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--color-fg-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn-cta {
+            background-color: var(--color-btn-bg);
+            color: var(--color-btn-text);
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            border: 1px solid rgba(27, 31, 36, 0.15);
+            cursor: pointer;
+        }
+
+        /* 2. Тарифные планы (Flexbox) */
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .price-card {
+            flex: 1;
+            border: 1px solid var(--color-border-default);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-width: 300px;
+        }
+
+        /* Выделение рекомендуемого тарифа */
+        .price-card.recommended {
+            border: 2px solid var(--color-accent-fg);
+            box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--color-accent-fg);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .price-card h2 { font-size: 24px; margin: 0; }
+        .price-card .subtitle { font-size: 14px; color: var(--color-fg-muted); margin: 8px 0 24px; height: 40px; }
+        
+        .price { font-size: 40px; font-weight: 600; }
+        .price span { font-size: 16px; color: var(--color-fg-muted); font-weight: 400; }
+        .price sup { font-size: 20px; vertical-align: super; }
+
+        .btn-plan {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 20px 0;
+            cursor: pointer;
+            border: 1px solid var(--color-border-default);
+            background: #fff;
+        }
+
+        .btn-plan-dark {
+            background: var(--color-btn-bg);
+            color: white;
+            border: none;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--color-fg-muted);
+            font-weight: bold;
+        }
+
+        /* 3. Дополнительные аддоны (CSS Grid) */
+        .addons-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .addons-section h2 {
+            margin-bottom: 32px;
+            font-size: 24px;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+            gap: 16px;
+        }
+
+        .addon-card {
+            border: 1px solid var(--color-border-default);
+            border-radius: 8px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+
+        .addon-card:hover {
+            border-color: var(--color-accent-fg);
+        }
+
+        .addon-card h4 { margin: 0 0 8px; font-size: 16px; }
+        .addon-card p { margin: 0; font-size: 14px; color: var(--color-fg-muted); }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 1012px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .price-card {
+                width: 100%;
+                max-width: 450px;
+            }
+            .addons-grid {
+                grid-template-columns: 1fr; /* 1 колонка на мобилках */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>Try the Copilot-powered platform</h1>
+        <p>We get it, there’s a lot you can do with GitHub. That’s why we’ve packed all of it into a single risk-free trial that includes GitHub Enterprise, Copilot, and Advanced Security.</p>
+        <button class="btn-cta">Start free for 30 days</button>
+    </section>
+
+    <div class="pricing-container">
+        <div class="price-card">
+            <h2>Free</h2>
+            <p class="subtitle">The basics for individuals and organizations</p>
+            <div class="price"><sup>$</sup>0 <span>USD per user/month</span></div>
+            <button class="btn-plan">Join for free</button>
+            <ul class="features-list">
+                <li>Unlimited public/private repositories</li>
+                <li>Dependabot security updates</li>
+                <li>2,000 CI/CD minutes/month</li>
+                <li>500MB Packages storage</li>
+            </ul>
+        </div>
+
+        <div class="price-card">
+            <h2>Team</h2>
+            <p class="subtitle">Advanced collaboration for individuals and organizations</p>
+            <div class="price"><sup>$</sup>4 <span>USD per user/month</span></div>
+            <button class="btn-plan btn-plan-dark">Continue with Team</button>
+            <ul class="features-list">
+                <li>Access to GitHub Codespaces</li>
+                <li>Protected branches</li>
+                <li>Multiple reviewers in pull requests</li>
+                <li>3,000 CI/CD minutes/month</li>
+            </ul>
+        </div>
+
+        <div class="price-card recommended">
+            <div class="recommended-badge">Recommended</div>
+            <h2>Enterprise</h2>
+            <p class="subtitle">Security, compliance, and flexible deployment</p>
+            <div class="price"><sup>$</sup>21 <span>USD per user/month</span></div>
+            <button class="btn-plan btn-plan-dark">Start a free trial</button>
+            <ul class="features-list">
+                <li>Enterprise Managed Users</li>
+                <li>SAML single sign-on</li>
+                <li>Advanced auditing</li>
+                <li>50,000 CI/CD minutes/month</li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>
