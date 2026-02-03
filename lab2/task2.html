@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в Instagram</title>
+    <style>
+        :root {
+            --ig-primary-button: #0095f6;
+            --ig-primary-button-hover: #1877f2;
+            --ig-secondary-text: #737373;
+            --ig-border: #dbdbdb;
+            --ig-bg: #ffffff;
+            --ig-link: #00376b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--ig-bg);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #262626;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .promo-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-right: 40px;
+        }
+
+        .promo-side img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .promo-text {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-top: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .auth-side {
+            width: 100%;
+            max-width: 400px;
+            padding-left: 40px;
+            border-left: 1px solid var(--ig-border);
+        }
+
+        .login-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-box h2 {
+            font-size: 16px;
+            margin-bottom: 24px;
+            align-self: flex-start;
+        }
+
+        .input-group {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 8px;
+            border: 1px solid var(--ig-border);
+            border-radius: 15px;
+            background: #fafafa;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #a8a8a8;
+        }
+
+        .btn-login {
+            width: 100%;
+            background-color: #b2dffc;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        .btn-login.active {
+            background-color: var(--ig-primary-button);
+        }
+
+        .forgot-password {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--ig-link);
+            text-decoration: none;
+        }
+
+        .social-login {
+            margin-top: 40px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-social, .btn-outline {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn-social {
+            background-color: var(--ig-bg);
+            border: 1px solid var(--ig-border);
+            color: #262626;
+        }
+
+        .btn-social i {
+            margin-right: 8px;
+            color: #1877f2;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--ig-primary-button);
+            color: var(--ig-primary-button);
+            margin-top: 10px;
+        }
+
+        .meta-logo {
+            margin-top: 30px;
+            color: var(--ig-secondary-text);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        @media (max-width: 800px) {
+            .main-container { flex-direction: column; }
+            .promo-side { padding-right: 0; margin-bottom: 40px; }
+            .auth-side { padding-left: 0; border-left: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <div class="promo-side">
+            <div class="promo-text">
+                Посмотрите, какими моментами из жизни поделились ваши <span class="gradient-text">близкие друзья</span>.
+            </div>
+
+            <div style="width: 100%; max-width: 400px; height: 300px; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                <img src="inst4.jpg" alt="Promo Image" style="width: 100%; max-width: 268px; border-radius: 20px;">
+            </div>
+            
+        </div>
+
+        <div class="auth-side">
+            <div class="login-box">
+                <h2>Войти в Instagram</h2>
+                
+                <div class="input-group">
+                    <input type="text" placeholder="Имя пользователя, номер телефона или эл. адрес">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Пароль">
+                </div>
+
+                <button class="btn-login active">Войти</button>
+
+                <a href="#" class="forgot-password">Забыли пароль?</a>
+
+                <div class="social-login">
+                    <a href="#" class="btn-social">
+                        <span style="color: #1877f2; font-weight: bold; margin-right: 8px;">f</span> 
+                        Войти через Facebook
+                    </a>
+                    <a href="#" class="btn-outline">Создать новый аккаунт</a>
+                </div>
+
+                <div class="meta-logo">
+                    <strong>∞</strong> Meta
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
