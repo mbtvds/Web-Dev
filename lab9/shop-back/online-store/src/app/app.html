@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="logo">Café <span>Aroma</span></div>
+  <nav class="nav">
+    <a href="#">Меню</a>
+    <a href="#">О нас</a>
+    <a href="#">Контакты</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Онлайн <span>Кафе</span></h1>
+  <p>Свежие блюда и напитки с доставкой</p>
+</div>
+
+<div class="categories">
+  @for (cat of categories; track cat.id) {
+    <button
+      class="cat-btn"
+      [class.active]="cat.id === selectedCategory.id"
+      (click)="selectCategory(cat)">
+      {{ cat.name }}
+    </button>
+  }
+</div>
+
+<app-product-list [products]="filteredProducts"></app-product-list>

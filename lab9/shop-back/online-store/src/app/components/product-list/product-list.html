@@ -1,0 +1,12 @@
+@if (displayedProducts.length > 0) {
+  <div class="grid">
+    @for (product of displayedProducts; track product.id; let i = $index) {
+      <app-product-item
+        [product]="product"
+        (deleteProduct)="onDelete(i)">
+      </app-product-item>
+    }
+  </div>
+} @else {
+  <p class="empty">В этой категории нет блюд 😔</p>
+}
